@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Python virtual environments & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Large Datasets & Heavy Model Weights (Exceeds GitHub's 100MB limit)
+safety-shoes.zip
+runs/
+*.pt
+yolov8n.onnx.data
+
+# Frontend production build (can be built with npm run build)
+frontend/dist/
+
+# Operating System & IDE metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+.vscode/
+.idea/
+.agents/
+.gemini/
+*.log
+
+# Ensure Exported ONNX models and samples are tracked
+!exported_models/best.onnx
+!exported_models/best.onnx.data
+!exported_models/best_int8.onnx
+!test_samples/

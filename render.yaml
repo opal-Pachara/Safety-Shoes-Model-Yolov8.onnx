@@ -1,0 +1,16 @@
+services:
+  # Single-Service Full-Stack Deployment (React Frontend + FastAPI ONNX Backend)
+  - type: web
+    name: safety-shoes-detector
+    runtime: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    region: singapore
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: MODEL_PATH
+        value: /app/exported_models/best.onnx
+      - key: CORS_ORIGINS
+        value: http://localhost:8000,http://localhost:5173,http://localhost:3000
+    healthCheckPath: /api/health
