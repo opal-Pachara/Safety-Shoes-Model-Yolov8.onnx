@@ -8,12 +8,12 @@ services:
     container_name: safety-shoes-detector-app
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "${HOST_PORT:-8080}:8000"
     environment:
       - PORT=8000
       - HOST=0.0.0.0
       - MODEL_PATH=/app/exported_models/best.onnx
-      - CORS_ORIGINS=http://localhost:8000,http://localhost:5173,http://localhost:3000
+      - CORS_ORIGINS=http://localhost:8080,http://localhost:8000,http://localhost:5173,http://localhost:3000
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
       interval: 30s
